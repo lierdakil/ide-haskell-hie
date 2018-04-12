@@ -14,3 +14,15 @@ declare module 'atom' {
     ): ConfigValues[T]
   }
 }
+
+declare module 'atom/autocomplete-plus' {
+  interface AutocompleteProvider {
+    getSuggestionDetailsOnSelect?: (
+      suggestion: TextSuggestion | SnippetSuggestion,
+    ) =>
+      | Promise<TextSuggestion | SnippetSuggestion | null>
+      | TextSuggestion
+      | SnippetSuggestion
+      | null
+  }
+}
